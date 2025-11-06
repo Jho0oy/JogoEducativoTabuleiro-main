@@ -7,13 +7,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="icon" href="assets/favicon.png" type="image/png" />
+    <style>
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+    </style>
   </head>
   <body>
-    <button id="music-toggle-btn" class="music-toggle">🎵</button>
+    <button id="music-toggle-btn" class="music-toggle" aria-label="Alternar música de fundo">🎵</button>
 
-    <!-- Logo no canto superior esquerdo -->
     <a href="https://www.ifma.edu.br/" target="_blank" rel="noopener noreferrer">
-      <img src="assets/favicon.png" alt="Logo IFMS" class="site-logo" />
+      <img src="assets/favicon.png" alt="Logo IFMA" class="site-logo" />
     </a>
 
     <main id="app">
@@ -37,7 +48,7 @@
           <h2>Como Jogar 🧭</h2>
           <p class="lead">
             1️⃣ Escolha um bioma para começar.<br />
-            2️⃣ Em cada bioma, você precisa resolver os 4 problemas.<br />
+            2️⃣ Em cada bioma, você precisa resolver todos os problemas.<br />
             3️⃣ Ao resolver um problema, ele ficará marcado como <strong>Resolvido</strong> e não poderá ser feito novamente.<br />
             4️⃣ Resolva todos os problemas de todos os biomas para ver sua pontuação final e receber uma mensagem personalizada.<br />
             Boa sorte e ajude a salvar o planeta! 🌍
@@ -116,11 +127,11 @@
       <!-- Tela Final -->
       <section id="final-screen" class="screen">
         <div class="card">
-          <h2>Parabéns!🎉</h2>
+          <h2>Parabéns! 🎉</h2>
           <p id="final-text" class="lead"></p>
           <div class="final-score">
             <span>Score final:</span>
-            <div id="final-score" class="big">0</div>
+            <strong id="final-score" class="big">0</strong>
           </div>
           <div class="controls">
             <button id="play-again" class="btn">Jogar novamente</button>
@@ -134,8 +145,11 @@
       <div class="modal-content">
         <h2>Criar Novo Tema (Bioma)</h2>
         <form id="create-theme-form">
+          <label for="theme-name" class="sr-only">Nome do Tema</label>
           <input type="text" id="theme-name" placeholder="Nome do Tema (ex: Manguezal)" required />
+          <label for="theme-desc" class="sr-only">Descrição</label>
           <input type="text" id="theme-desc" placeholder="Descrição curta" required />
+          <label for="theme-emoji" class="sr-only">Emoji</label>
           <input type="text" id="theme-emoji" placeholder="Emoji que representa (ex: 🦀)" required />
           <div class="modal-actions">
             <button type="button" id="cancel-theme-btn" class="btn">Cancelar</button>
@@ -146,7 +160,7 @@
     </div>
 
     <footer class="footer">
-      <small></small>
+      <small>Desenvolvido por Felipe • IFMA © 2025</small>
     </footer>
 
     <audio id="background-music" loop>
